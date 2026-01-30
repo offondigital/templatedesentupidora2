@@ -1,0 +1,292 @@
+
+import React from 'react';
+import Header from './components/Header';
+import ServiceCard from './components/ServiceCard';
+import { Icons, COMPANY_PHONE, COMPANY_NAME, FULL_COMPANY_NAME } from './constants';
+
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="hero-gradient relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center relative z-10">
+          <div className="md:w-3/5 text-center md:text-left mb-12 md:mb-0">
+            <span className="inline-block bg-waterBlue bg-opacity-20 text-waterBlue font-bold py-2 px-4 rounded-full mb-6 uppercase tracking-wider text-sm animate-pulse">
+              Atendimento 24 Horas em Toda Região
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+              Desentupimento <br />
+              <span className="text-waterBlue">Rápido e Profissional</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white text-opacity-90 mb-10 max-w-2xl">
+              Solucionamos problemas de entupimento em pias, ralos, vasos e esgotos com tecnologia de ponta e equipe especializada. Sem quebra-quebra!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a 
+                href={`tel:${COMPANY_PHONE.replace(/\D/g, '')}`}
+                className="bg-vibrantBlue hover:bg-white hover:text-vibrantBlue text-white text-lg font-bold px-10 py-5 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-2xl"
+              >
+                <Icons.Phone />
+                Chamar Agora
+              </a>
+              <a 
+                href="#services"
+                className="bg-transparent border-2 border-white hover:bg-white hover:text-deepBlue text-white text-lg font-bold px-10 py-5 rounded-2xl flex items-center justify-center transition-all"
+              >
+                Nossos Serviços
+              </a>
+            </div>
+          </div>
+          <div className="md:w-2/5 relative hidden lg:block">
+            <div className="bg-white p-4 rounded-3xl shadow-2xl transform rotate-3">
+              <img 
+                src="https://picsum.photos/seed/drain/600/600" 
+                alt="Serviço de desentupimento" 
+                className="rounded-2xl w-full h-auto object-cover"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-deepBlue text-white p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div className="text-3xl font-bold">15+</div>
+                <div className="text-sm font-medium leading-tight opacity-80 uppercase">Anos de<br/>Experiência</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Background blobs for visual flair */}
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-vibrantBlue opacity-20 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-waterBlue opacity-10 blur-[100px] rounded-full"></div>
+      </section>
+
+      {/* Trust Stats */}
+      <section className="bg-deepBlue py-10">
+        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1">50k+</div>
+            <div className="text-waterBlue text-sm font-bold uppercase tracking-widest">Chamados</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1">24/7</div>
+            <div className="text-waterBlue text-sm font-bold uppercase tracking-widest">Disponível</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1">100%</div>
+            <div className="text-waterBlue text-sm font-bold uppercase tracking-widest">Garantia</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1">30min</div>
+            <div className="text-waterBlue text-sm font-bold uppercase tracking-widest">Chegada</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 bg-mediumGray bg-opacity-30">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-deepBlue text-sm font-bold uppercase tracking-widest mb-4">Soluções Completas</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-softBlack mb-6">O que Desentupimos?</h3>
+            <p className="text-lg text-softBlack text-opacity-70">
+              Utilizamos equipamentos modernos de hidrojateamento e sondas rotativas para garantir um serviço limpo, seguro e eficiente.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ServiceCard 
+              title="Esgoto Geral" 
+              description="Desentupimento de colunas de prédios e redes de esgoto residenciais e industriais com tecnologia avançada."
+              icon={<Icons.Shield />}
+            />
+            <ServiceCard 
+              title="Ralos e Pias" 
+              description="Remoção total de resíduos acumulados em ralos de banheiros, quintais e pias de cozinha sem danos à tubulação."
+              icon={<Icons.Droplet />}
+            />
+            <ServiceCard 
+              title="Vasos Sanitários" 
+              description="Solução imediata para obstruções em vasos sanitários, com métodos que preservam a integridade da louça."
+              icon={<Icons.Check />}
+            />
+            <ServiceCard 
+              title="Caixas de Gordura" 
+              description="Limpeza e desobstrução profissional de caixas de gordura para evitar mau cheiro e refluxos indesejados."
+              icon={<Icons.Shield />}
+            />
+            <ServiceCard 
+              title="Colunas Prediais" 
+              description="Atendimento preventivo e corretivo em prumadas de condomínios com rapidez e eficácia total."
+              icon={<Icons.Clock />}
+            />
+            <ServiceCard 
+              title="Limpeza de Fossa" 
+              description="Serviço especializado de sucção e transporte de resíduos com frota de caminhões moderna."
+              icon={<Icons.Droplet />}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section id="about" className="py-24 bg-white">
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
+          <div className="lg:w-1/2">
+            <img 
+              src="https://picsum.photos/seed/worker/800/600" 
+              alt="Nossa equipe" 
+              className="rounded-3xl shadow-2xl"
+            />
+          </div>
+          <div className="lg:w-1/2">
+            <h2 className="text-vibrantBlue text-sm font-bold uppercase tracking-widest mb-4">Nossos Diferenciais</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-deepBlue mb-8">Por que escolher a {COMPANY_NAME}?</h3>
+            
+            <div className="space-y-6">
+              {[
+                { title: "Atendimento Imediato 24h", desc: "Não importa o horário, nossa equipe está pronta para atender sua emergência.", icon: <Icons.Clock /> },
+                { title: "Equipamentos de Última Geração", desc: "Usamos hidrojateamento e câmeras de inspeção para precisão total.", icon: <Icons.Shield /> },
+                { title: "Orçamento sem Compromisso", desc: "Visita gratuita para avaliação e orçamento justo na hora.", icon: <Icons.Check /> },
+                { title: "Garantia por Escrito", desc: "Todos os nossos serviços possuem garantia total de satisfação e execução.", icon: <Icons.Shield /> }
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 bg-waterBlue bg-opacity-20 text-vibrantBlue rounded-xl flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-deepBlue mb-1">{item.title}</h4>
+                    <p className="text-softBlack text-opacity-70 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-24 bg-deepBlue">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-waterBlue text-sm font-bold uppercase tracking-widest mb-4">Depoimentos</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white">O que dizem nossos clientes</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Carlos Andrade", role: "Síndico de Condomínio", content: "Atendimento excepcional. Chegaram em 20 minutos e resolveram um problema crônico na coluna do prédio. Recomendo muito!" },
+              { name: "Marina Silva", role: "Proprietária Residencial", content: "Excelente serviço. O técnico foi super educado, não fez sujeira e o preço foi muito justo comparado a outros orçamentos." },
+              { name: "Roberto Souza", role: "Gerente de Restaurante", content: "Precisávamos de limpeza urgente na caixa de gordura em pleno sábado à noite. Foram os únicos que atenderam rápido." }
+            ].map((t, idx) => (
+              <div key={idx} className="bg-white bg-opacity-5 p-8 rounded-2xl border border-white border-opacity-10 backdrop-blur-sm">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => <Icons.Star key={i} />)}
+                </div>
+                <p className="text-white text-opacity-80 italic mb-6 leading-relaxed">"{t.content}"</p>
+                <div>
+                  <div className="font-bold text-white text-lg">{t.name}</div>
+                  <div className="text-waterBlue text-sm">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-softBlack text-white pt-20 pb-10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            {/* Branding Column */}
+            <div className="flex flex-col space-y-6">
+              <div className="flex items-center space-x-2">
+                <div className="bg-vibrantBlue p-2 rounded-lg text-white">
+                  <Icons.Droplet />
+                </div>
+                <span className="text-2xl font-extrabold tracking-tight">
+                  Acqua<span className="text-vibrantBlue">Flux</span>
+                </span>
+              </div>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                Referência em desentupimento e hidrojateamento. Atendemos residências, comércios, indústrias e condomínios com rapidez e ética profissional 24 horas por dia.
+              </p>
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-vibrantBlue transition-colors cursor-pointer text-xs font-bold">FB</div>
+                <div className="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-vibrantBlue transition-colors cursor-pointer text-xs font-bold">IG</div>
+                <div className="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-vibrantBlue transition-colors cursor-pointer text-xs font-bold">WA</div>
+              </div>
+            </div>
+            
+            {/* Services Column */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white border-l-4 border-vibrantBlue pl-4 uppercase tracking-wider">Serviços</h4>
+              <ul className="space-y-4 text-gray-400 text-sm">
+                <li><a href="#services" className="hover:text-waterBlue transition-colors">Desentupimento de Esgoto</a></li>
+                <li><a href="#services" className="hover:text-waterBlue transition-colors">Limpeza de Ralos e Pias</a></li>
+                <li><a href="#services" className="hover:text-waterBlue transition-colors">Vasos Sanitários</a></li>
+                <li><a href="#services" className="hover:text-waterBlue transition-colors">Hidrojateamento</a></li>
+                <li><a href="#services" className="hover:text-waterBlue transition-colors">Caixa de Gordura</a></li>
+              </ul>
+            </div>
+
+            {/* Contact Column */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white border-l-4 border-vibrantBlue pl-4 uppercase tracking-wider">Contato</h4>
+              <ul className="space-y-6 text-gray-400">
+                <li className="flex gap-3 items-start">
+                  <div className="text-vibrantBlue mt-1 flex-shrink-0"><Icons.Phone /></div>
+                  <div>
+                    <a href={`tel:${COMPANY_PHONE.replace(/\D/g, '')}`} className="text-white font-bold hover:text-vibrantBlue transition-colors">{COMPANY_PHONE}</a>
+                    <div className="text-xs mt-1 uppercase tracking-tighter text-gray-500">Plantão de Emergência 24h</div>
+                  </div>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <div className="text-vibrantBlue mt-1 flex-shrink-0"><Icons.Mail /></div>
+                  <div className="break-all">
+                    <a href="mailto:contato@acquaflux.com.br" className="text-white font-bold hover:text-vibrantBlue transition-colors">contato@acquaflux.com.br</a>
+                    <div className="text-xs mt-1 uppercase tracking-tighter text-gray-500">Suporte ao Cliente</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Area Column */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white border-l-4 border-vibrantBlue pl-4 uppercase tracking-wider">Cobertura</h4>
+              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                Atendemos toda a capital, região metropolitana e interior com equipes estrategicamente posicionadas para chegada em até 30 minutos.
+              </p>
+              <div className="bg-white bg-opacity-5 p-4 rounded-xl border border-white border-opacity-5">
+                <p className="text-xs text-gray-400 italic">"Garantia de serviço limpo e solução definitiva para o seu imóvel."</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs gap-4">
+            <p>&copy; 2024 {FULL_COMPANY_NAME}. CNPJ: 00.000.000/0001-00</p>
+            <div className="flex space-x-6">
+              <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+              <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating CTA for Mobile Conversion */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a 
+          href={`https://wa.me/${COMPANY_PHONE.replace(/\D/g, '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform animate-bounce"
+          aria-label="Falar no WhatsApp"
+        >
+          <svg className="w-7 h-7 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default App;
